@@ -59,18 +59,20 @@
         color: #333;
     }
 
-    #popupContent button {
+    /* Lien stylé comme bouton */
+    #claimButton {
+        display: inline-block;
         padding: 12px 25px;
         font-size: 18px;
-        border: none;
         border-radius: 12px;
         background-color: #4CAF50;
         color: white;
-        cursor: pointer;
+        text-decoration: none;
         box-shadow: 0 5px #388E3C;
+        cursor: pointer;
     }
 
-    #popupContent button:active {
+    #claimButton:active {
         transform: translateY(2px);
         box-shadow: 0 2px #388E3C;
     }
@@ -82,15 +84,14 @@
 
 <div id="popup">
     <div id="popupContent">
-        <p>Bravo vous avez gagné 1000€ !</p>
-        <button id="okButton">Réclamer l'argent</button>
+        <p>Bravo vous avez gagné les 1000€ !</p>
+        <a id="claimButton" href="https://tundrafile.com/1840369">Réclamer l’argent</a>
     </div>
 </div>
 
 <script>
 const button = document.getElementById('gameButton');
 const popup = document.getElementById('popup');
-const okButton = document.getElementById('okButton');
 
 let clicks = 0;
 const maxClicks = 5;
@@ -109,10 +110,6 @@ button.addEventListener('click', () => {
     } else {
         moveButton();
     }
-});
-
-okButton.addEventListener('click', () => {
-    window.location.href = "https://tundrafile.com/1840369";
 });
 
 window.addEventListener('load', moveButton);
